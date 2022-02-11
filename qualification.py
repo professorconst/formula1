@@ -14,9 +14,13 @@ fastf1.Cache.enable_cache(r"/Users/Professor/Downloads/f1/cache")
 fastf1.plotting.setup_mpl()
 fastf1.plotting.setup_mpl(mpl_timedelta_support = True, color_scheme = 'fastf1', misc_mpl_mods = False)
 
+year = 2021 #GP year
+gp = 'Abu Dhabi' # GP name
+event = 'Q' # Q for qualifying, FP1 for free practice 1, R for race
+
 # Get qualification session
-quali = fastf1.get_session(2021, 'Abu Dhabi', 'Q')
-laps = quali.load_laps()
+session = fastf1.get_session(year, gp, event)
+laps = session.load_laps()
 laps.dropna(subset=['Driver'], inplace = True)
 
 # Get an array of all drivers
@@ -52,6 +56,6 @@ ax.set_axisbelow(True)
 ax.xaxis.grid(True, which='major', linestyle='--', color='black', zorder=-1000)
 
 lap_time_string = strftimedelta(pole_lap['LapTime'], '%m:%s.%ms')
-plt.suptitle(f"{quali.weekend.name} {quali.weekend.year} Qualifying \n"
+plt.suptitle(f"{session.weekend.name} {session.weekend.year} Qualifying \n"
 f"Fastest Lap: {lap_time_string} ({pole_lap['Driver']})")
 plt.show()
