@@ -8,7 +8,7 @@ from fastf1.core import Laps
 import pandas as pd
 
 # Configure matplotlib and f1 plots with this intit
-mpl.rcParams['figure.dpi'] = 150
+mpl.rcParams['figure.dpi'] = 80
 mpl.rcParams['figure.figsize'] = (6,6)
 fastf1.Cache.enable_cache(r"/Users/Professor/Downloads/f1/cache")
 fastf1.plotting.setup_mpl()
