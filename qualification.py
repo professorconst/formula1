@@ -11,6 +11,7 @@ import pandas as pd
 mpl.rcParams['figure.dpi'] = 150
 mpl.rcParams['figure.figsize'] = (6,6)
 fastf1.Cache.enable_cache(r"/Users/Professor/Downloads/f1/cache")
+fastf1.plotting.setup_mpl()
 fastf1.plotting.setup_mpl(mpl_timedelta_support = True, color_scheme = 'fastf1', misc_mpl_mods = False)
 
 # Get qualification session
